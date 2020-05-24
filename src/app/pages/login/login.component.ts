@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginUser: any = {};
   errorText: string = "Sign In to your account";
+  register: string =  "register";
 
   private user: SocialUser;
   private loggedIn: boolean;
@@ -81,6 +82,10 @@ export class LoginComponent implements OnInit {
 
   signOut(): void {
     this.authService.signOut();
+  }
+
+  registerForm() {
+    this.router.navigateByUrl("/" + this.register);
   }
 
 }

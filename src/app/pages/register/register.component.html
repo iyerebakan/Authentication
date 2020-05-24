@@ -1,1 +1,77 @@
-<p>register works!</p>
+<div class="app-body">
+    <main class="main d-flex align-items-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mx-auto">
+            <div class="card mx-4">
+              <div class="card-body p-4">
+                <form [formGroup]="registerForm" (ngSubmit)="register()" >
+                  <h1>Register</h1>
+                  <p class="text-muted">{{errorText}}</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Username" formControlName="userName" autocomplete="username" required>
+                    <span class="help-block" *ngIf="registerForm.get('userName').hasError('required') && registerForm.get('userName').touched">
+                        Kullanıcı adı gerekli
+                      </span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">@</span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="Email" formControlName="email" autocomplete="email" required>
+                    <span class="help-block" *ngIf="registerForm.get('email').hasError('required') && registerForm.get('email').touched">
+                        E-mail adı gerekli
+                      </span>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" autocomplete="new-password" required>
+                    <span class="help-block" *ngIf="registerForm.get('password').hasError('required') && registerForm.get('password').touched">
+                        Şifre gerekli
+                      </span>
+                      <span class="help-block" *ngIf="registerForm.get('password').hasError('minlength') && registerForm.get('password').touched">
+                        Şifre en az 4 karakter olmalıdır
+                      </span>
+                      <span class="help-block" *ngIf="registerForm.get('password').hasError('maxlength') && registerForm.get('password').touched">
+                        Şifre 8 karakteri geçemez
+                      </span>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="Repeat password"
+                    formControlName="confirmPassword" autocomplete="new-password" required>
+                    <span class="help-block" *ngIf="registerForm.get('confirmPassword').hasError('required') && registerForm.get('confirmPassword').touched">
+                        Şifre doğrulama gerekli
+                      </span>
+                      <span class="help-block" *ngIf="registerForm.get('confirmPassword').touched 
+                              && registerForm.hasError('mismatch')">
+                        Şifreler uyumsuz
+                      </span>
+                  </div>
+                  <button type="submit" class="btn btn-block btn-success">Create Account</button>
+                </form>
+              </div>
+              <div class="card-footer p-4">
+                <div class="row">
+                  <div class="col-6">
+                    <button class="btn btn-block btn-primary" type="button"><span>Register With FaceBook</span></button>
+                  </div>
+                  <div class="col-6">
+                    <button class="btn btn-block btn-danger" type="button"><span>Register With Google</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  

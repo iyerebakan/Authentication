@@ -50,8 +50,8 @@ export class LoginService {
   }
 
 
-  getCurrentUserId() {
-    return this.jwtHelper.decodeToken(this.token).aud;
+  getCurrentUserEmail() {
+    return this.jwtHelper.decodeToken(this.token).email;
   }
 
 }

@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   userName: string = "İsim Yoktur.!";
 
   ngOnInit(): void {
-    this.userName=this.loginService.getCurrentUserId();
+    this.userName=this.loginService.getCurrentUserEmail();
   }
 
 }

@@ -15,6 +15,7 @@ import { LoginGuard } from './services/login/login.guard';
 import { HomeGuard } from './pages/home/home.guard';
 
 import {SocialLoginModule, GoogleLoginProvider, FacebookLoginProvider, AuthServiceConfig} from 'angularx-social-login'
+import { RegisterService } from './services/register/register.service';
 
 
 let config = new AuthServiceConfig([
@@ -51,7 +52,8 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    RegisterService
   ],
   bootstrap: [AppComponent]
 })
